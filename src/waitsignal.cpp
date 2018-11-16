@@ -5,7 +5,7 @@ waitsignal::waitsignal()
 {
     sem_init(&waitsignal::gExitSem, 0, 0);
 	signal(SIGINT, waitsignal::CallBack);
-    printf("wait signal ctrl-c.\r\n");
+    //printf("wait signal ctrl-c.\r\n");
     sem_wait(&waitsignal::gExitSem);
 }
 
@@ -16,6 +16,6 @@ waitsignal::~waitsignal()
 
 void waitsignal::CallBack(int sig)
 {
-    printf(" >> recv signal.\r\n");
+    //printf(" >> recv signal.\r\n");
 	sem_post(&gExitSem);
 }
